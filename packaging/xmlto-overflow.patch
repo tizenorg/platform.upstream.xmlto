@@ -1,0 +1,16 @@
+Index: xmlif/xmlif.c
+===================================================================
+--- xmlif/xmlif.c.orig
++++ xmlif/xmlif.c
+@@ -8,9 +8,10 @@
+ #define YY_FLEX_MAJOR_VERSION 2
+ #define YY_FLEX_MINOR_VERSION 5
+ 
++#include <string.h>
+ #include <stdio.h>
+ #include <unistd.h>
+-
++#include <sys/socket.h>
+ 
+ /* cfront 1.2 defines "c_plusplus" instead of "__cplusplus" */
+ #ifdef c_plusplus

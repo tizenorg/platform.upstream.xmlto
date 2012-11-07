@@ -1,0 +1,14 @@
+Index: xmlto.in
+===================================================================
+--- xmlto.in.orig
++++ xmlto.in
+@@ -584,6 +584,9 @@ else
+   #xsltproc may return no file on empty input, touch it to have it for sure
+   touch "$XSLT_PROCESSED"
+ 
++  #xsltproc may return no file on empty input, touch it to have it for sure
++  touch "$XSLT_PROCESSED"
++
+   if [ $? == 4 ]
+   then
+     XSLTOPTS="${XSLTOPTS} --catalogs"
