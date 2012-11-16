@@ -38,6 +38,7 @@ OPTIONs are:
   -o directory    put output in the specified directory instead of
                   the current working directory
   -p postprocopts pass option to postprocessor
+  --xsltopts      use xsltproc command line options
   --extensions    turn on stylesheet extensions for this tool chain
   --noautosize    do not autodetect paper size via locales or paperconf
   --noclean       temp files are not deleted automatically
@@ -262,7 +263,7 @@ ZIP_PATH=@ZIP@
 
 # Process any options
 ARGS=$(${GETOPT} \
-	--longoptions=help,version,extensions,searchpath:,skip-validation,stringparam:,noclean,noautosize,with-fop,with-dblatex \
+	--longoptions=help,version,extensions,searchpath:,skip-validation,stringparam:,noclean,noautosize,with-fop,with-dblatex,xsltopts: \
 	-n xmlto -- x:m:o:p:v "$@")
 [ $? != 0 ] && { usage; exit 1; }
 eval set -- "$ARGS"
@@ -383,6 +384,10 @@ while [ "$#" -gt "0" ]; do
 	fi
 	shift
 	;;
+  --xsltopts)
+      XSLTOPTS="$XSLTOPTS $2"
+      shift 2
+      ;;
   --)
 	shift
 	break
