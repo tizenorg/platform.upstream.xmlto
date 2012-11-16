@@ -6,11 +6,6 @@ Summary:        Tool for Converting XML Files to Various Formats
 Url:            https://fedorahosted.org/xmlto/
 Group:          Productivity/Publishing/XML
 Source0:        https://fedorahosted.org/releases/x/m/xmlto/%{name}-%{version}.tar.bz2
-Patch0:         xmlto-nonvoid.patch
-Patch1:         xmlto-overflow.patch
-Patch3:         xmlto-xsltopts.patch
-Patch4:         xmlto-codecleanup.patch
-Patch5:         xmlto-lynx-empty-file.patch
 BuildRequires:  docbook-xsl-stylesheets
 BuildRequires:  flex
 BuildRequires:  libxslt
@@ -30,11 +25,8 @@ for print output it makes use of passivetex.
 
 %prep
 %setup -q
-%patch0
-%patch1
-%patch3
-%patch4
-%patch5
+
+
 rm -f xmlif/xmlif.c
 
 %build
