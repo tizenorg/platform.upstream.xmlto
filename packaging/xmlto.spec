@@ -6,6 +6,7 @@ Summary:        Tool for Converting XML Files to Various Formats
 Url:            https://fedorahosted.org/xmlto/
 Group:          Productivity/Publishing/XML
 Source0:        https://fedorahosted.org/releases/x/m/xmlto/%{name}-%{version}.tar.bz2
+Source1001: 	xmlto.manifest
 BuildRequires:  docbook-xsl-stylesheets
 BuildRequires:  flex
 BuildRequires:  libxslt
@@ -25,6 +26,7 @@ for print output it makes use of passivetex.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 
 rm -f xmlif/xmlif.c
@@ -42,6 +44,7 @@ make check
 %{fdupes '%{buildroot}%{_datadir}/xmlto'}
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %doc COPYING
 %{_bindir}/*
